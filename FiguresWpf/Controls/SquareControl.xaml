@@ -1,0 +1,23 @@
+<UserControl x:Class="FiguresWpf.Controls.SquareControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <StackPanel>
+        <TextBlock Text="Square" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Сторона" Foreground="{StaticResource BrushTextDim}"/>
+        <TextBox x:Name="SideBox" Text="120"/>
+
+        <TextBlock Text="Швидкість (dx)" Foreground="{StaticResource BrushTextDim}"/>
+        <TextBox x:Name="DxBox" Text="2"/>
+
+        <TextBlock Text="Кроки" Foreground="{StaticResource BrushTextDim}"/>
+        <TextBox x:Name="StepsBox" Text="80"/>
+
+        <Button x:Name="CreateBtn" Content="Створити" Click="CreateBtn_Click"/>
+        <Button x:Name="MoveBtn" Content="Рух праворуч" Click="MoveBtn_Click"/>
+    </StackPanel>
+</UserControl>

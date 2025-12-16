@@ -1,0 +1,14 @@
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf.csproj.AssemblyReference.cache
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\CircleControl.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\SquareControl.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\RhombControl.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Themes\DarkTheme.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\App.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\MainWindow.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\CircleControl.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\SquareControl.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\Controls\RhombControl.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\App.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf_MarkupCompile.cache
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf_MarkupCompile.lref

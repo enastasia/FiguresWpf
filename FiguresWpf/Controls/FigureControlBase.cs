@@ -1,0 +1,37 @@
+using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Controls;
+using FiguresWpf.Figures;
+
+namespace FiguresWpf.Controls
+{
+    public abstract class FigureControlBase : UserControl, IFigureControl
+    {
+        public abstract string Title { get; }
+        public abstract Figure CreateFigure(double centerX, double centerY);
+
+        public event Action<Figure> FigureCreated;
+        public event Action<int, double> MoveRequested;
+
+        protected void RaiseFigureCreated(Figure figure) => FigureCreated?.Invoke(figure);
+        protected void RaiseMoveRequested(int steps, double dx) => MoveRequested?.Invoke(steps, dx);
+
+        protected static double ParseDouble(string text, double fallback)
+        {
+            if (double.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out var v)) return v;
+            if (double.TryParse(text, NumberStyles.Float, CultureInfo.CurrentCulture, out v)) return v;
+            return fallback;
+        }
+
+        protected static int ParseInt(string text, int fallback)
+        {
+            return int.TryParse(text, out var v) ? v : fallback;
+        }
+
+        protected void Info(string message)
+        {
+            MessageBox.Show(message, "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+    }
+}
