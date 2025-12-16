@@ -12,3 +12,10 @@ D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\App.g.cs
 D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf_MarkupCompile.cache
 D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf_MarkupCompile.lref
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\bin\Debug\FiguresWpf.exe
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\bin\Debug\FiguresWpf.pdb
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\MainWindow.baml
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf.g.resources
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf.csproj.CoreCompileInputs.cache
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf.exe
+D:\Downloads\FiguresWpf_Project\FiguresWpf\FiguresWpf\obj\Debug\FiguresWpf.pdb
