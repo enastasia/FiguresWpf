@@ -25,14 +25,14 @@ namespace FiguresWpf
                 _active.DrawBlack(DrawCanvas);
             };
 
-            ctl.MoveRequested += (steps, dx) =>
+            ctl.MoveRequested += (steps, dx, dy) =>
             {
                 if (_active == null)
                 {
                     MessageBox.Show("Спочатку створіть фігуру...", "Нема фігури", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                _active.MoveRight(DrawCanvas, steps, dx);
+                _active.Move(DrawCanvas, steps, dx, dy);
             };
         }
 

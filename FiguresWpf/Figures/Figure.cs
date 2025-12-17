@@ -26,7 +26,7 @@ namespace FiguresWpf.Figures
         /// <summary>
         /// Movement is implemented ONLY here (polymorphism works via DrawBlack/HideDrawingBackGround).
         /// </summary>
-        public void MoveRight(Canvas canvas, int steps = 50, double dx = 2)
+        public void Move(Canvas canvas, int steps = 50, double dx = 0, double dy = 0)
         {
             // Do not block the UI thread.
             _ = Task.Run(() =>
@@ -38,6 +38,7 @@ namespace FiguresWpf.Figures
                     Application.Current.Dispatcher.Invoke(() => HideDrawingBackGround(canvas));
 
                     CenterX += dx;
+                    CenterY += dy;
                 }
 
                 // Final draw, so the figure remains visible at the last position.
@@ -45,6 +46,14 @@ namespace FiguresWpf.Figures
             });
         }
 
+        public void MoveRight(Canvas canvas, int steps = 50, double dx = 2) => Move(canvas, steps, dx, 0);
+
+        public void MoveLeft(Canvas canvas, int steps = 50, double dx = 2) => Move(canvas, steps, -dx, 0);
+
+        public void MoveUp(Canvas canvas, int steps = 50, double dy = 2) => Move(canvas, steps, 0, -dy);
+
+        public void MoveDown(Canvas canvas, int steps = 50, double dy = 2) => Move(canvas, steps, 0, dy);
+       
         protected static void EnsureOnCanvas(UIElement element, Canvas canvas)
         {
             if (element == null) return;

@@ -12,10 +12,11 @@ namespace FiguresWpf.Controls
         public abstract Figure CreateFigure(double centerX, double centerY);
 
         public event Action<Figure> FigureCreated;
-        public event Action<int, double> MoveRequested;
+        public event Action<int, double, double> MoveRequested;
+
 
         protected void RaiseFigureCreated(Figure figure) => FigureCreated?.Invoke(figure);
-        protected void RaiseMoveRequested(int steps, double dx) => MoveRequested?.Invoke(steps, dx);
+        protected void RaiseMoveRequested(int steps, double dx, double dy) => MoveRequested?.Invoke(steps, dx, dy);
 
         protected static double ParseDouble(string text, double fallback)
         {

@@ -24,11 +24,19 @@ namespace FiguresWpf.Controls
             RaiseFigureCreated(CreateFigure(140, 180));
         }
 
-        private void MoveBtn_Click(object sender, RoutedEventArgs e)
+        private void MoveUp_Click(object sender, RoutedEventArgs e) => RequestMove(0, -1);
+
+        private void MoveDown_Click(object sender, RoutedEventArgs e) => RequestMove(0, 1);
+
+        private void MoveLeft_Click(object sender, RoutedEventArgs e) => RequestMove(-1, 0);
+
+        private void MoveRight_Click(object sender, RoutedEventArgs e) => RequestMove(1, 0);
+
+        private void RequestMove(int directionX, int directionY)
         {
             int steps = ParseInt(StepsBox.Text, 80);
-            double dx = ParseDouble(DxBox.Text, 2);
-            RaiseMoveRequested(steps, dx);
+            double speed = ParseDouble(DxBox.Text, 2);
+            RaiseMoveRequested(steps, speed * directionX, speed * directionY);
         }
     }
 }
