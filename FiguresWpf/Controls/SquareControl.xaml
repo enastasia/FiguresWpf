@@ -7,7 +7,7 @@
                             mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="Square" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+        <TextBlock Text="Квадрат" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
 
         <TextBlock Text="Сторона" Foreground="{StaticResource BrushTextDim}"/>
         <TextBox x:Name="SideBox" Text="120"/>
@@ -18,6 +18,9 @@
         <TextBlock Text="Кроки" Foreground="{StaticResource BrushTextDim}"/>
         <TextBox x:Name="StepsBox" Text="80"/>
 
+        <TextBlock Text="Колір" Foreground="{StaticResource BrushTextDim}"/>
+        <TextBox x:Name="ColorBox" Text="#FFFFFF"/>
+        
         <Button x:Name="CreateBtn" Content="Створити" Click="CreateBtn_Click"/>
         <WrapPanel Margin="0,4,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button Content="Вгору" Click="MoveUp_Click" Margin="0,0,4,0"/>

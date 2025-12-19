@@ -7,8 +7,8 @@ namespace FiguresWpf.Figures
 {
     public class Rhomb : Figure
     {
-        public Rhomb(double centerX, double centerY, double diagonalHorizontal, double diagonalVertical)
-            : base(centerX, centerY)
+        public Rhomb(double centerX, double centerY, double diagonalHorizontal, double diagonalVertical, Brush strokeBrush)
+            : base(centerX, centerY, strokeBrush)
         {
             DiagonalHorizontal = diagonalHorizontal;
             DiagonalVertical = diagonalVertical;
@@ -25,7 +25,7 @@ namespace FiguresWpf.Figures
             {
                 _poly = new Polygon
                 {
-                    Stroke = Brushes.Black,
+                    Stroke = StrokeBrush,
                     StrokeThickness = 2,
                     Fill = Brushes.Transparent,
                     StrokeLineJoin = PenLineJoin.Round
@@ -43,7 +43,7 @@ namespace FiguresWpf.Figures
                 new Point(CenterX, CenterY + dy)
             };
 
-            _poly.Stroke = Brushes.Black;
+            _poly.Stroke = StrokeBrush;
             _poly.Fill = Brushes.Transparent;
 
             EnsureOnCanvas(_poly, canvas);

@@ -1,5 +1,6 @@
 using System.Windows;
 using FiguresWpf.Figures;
+using System.Windows.Media;
 
 namespace FiguresWpf.Controls
 {
@@ -18,7 +19,8 @@ namespace FiguresWpf.Controls
             double dv = ParseDouble(DVBox.Text, 100);
             if (dh <= 0) dh = 160;
             if (dv <= 0) dv = 100;
-            return new Rhomb(centerX, centerY, dh, dv);
+            var stroke = ParseBrush(ColorBox.Text, Brushes.White);
+            return new Rhomb(centerX, centerY, dh, dv, stroke);
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)

@@ -6,8 +6,8 @@ namespace FiguresWpf.Figures
 {
     public class Circle : Figure
     {
-        public Circle(double centerX, double centerY, double radius)
-            : base(centerX, centerY)
+        public Circle(double centerX, double centerY, double radius, Brush strokeBrush)
+            : base(centerX, centerY, strokeBrush)
         {
             Radius = radius;
         }
@@ -22,7 +22,7 @@ namespace FiguresWpf.Figures
             {
                 _ellipse = new Ellipse
                 {
-                    Stroke = Brushes.Black,
+                      Stroke = StrokeBrush,
                     StrokeThickness = 2,
                     Fill = Brushes.Transparent
                 };
@@ -33,7 +33,7 @@ namespace FiguresWpf.Figures
             Canvas.SetLeft(_ellipse, CenterX - Radius);
             Canvas.SetTop(_ellipse, CenterY - Radius);
 
-            _ellipse.Stroke = Brushes.Black;
+            _ellipse.Stroke = StrokeBrush;
             _ellipse.Fill = Brushes.Transparent;
 
             EnsureOnCanvas(_ellipse, canvas);

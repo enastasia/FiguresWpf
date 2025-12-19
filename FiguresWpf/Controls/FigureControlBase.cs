@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using FiguresWpf.Figures;
 
 namespace FiguresWpf.Controls
@@ -29,7 +30,20 @@ namespace FiguresWpf.Controls
         {
             return int.TryParse(text, out var v) ? v : fallback;
         }
+        protected static Brush ParseBrush(string text, Brush fallback)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return fallback;
 
+            try
+            {
+                var color = (Color)ColorConverter.ConvertFromString(text.Trim());
+                return new SolidColorBrush(color);
+            }
+            catch
+            {
+                return fallback;
+            }
+        }
         protected void Info(string message)
         {
             MessageBox.Show(message, "Info", MessageBoxButton.OK, MessageBoxImage.Information);

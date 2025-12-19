@@ -1,5 +1,6 @@
 using System.Windows;
 using FiguresWpf.Figures;
+using System.Windows.Media;
 
 namespace FiguresWpf.Controls
 {
@@ -16,7 +17,8 @@ namespace FiguresWpf.Controls
         {
             double r = ParseDouble(RadiusBox.Text, 60);
             if (r <= 0) r = 60;
-            return new Circle(centerX, centerY, r);
+            var stroke = ParseBrush(ColorBox.Text, Brushes.White);
+            return new Circle(centerX, centerY, r, stroke);
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)

@@ -3,19 +3,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace FiguresWpf.Figures
 {
     public abstract class Figure
     {
-        protected Figure(double centerX, double centerY)
+        protected Figure(double centerX, double centerY, Brush strokeBrush)
         {
             CenterX = centerX;
             CenterY = centerY;
+            StrokeBrush = strokeBrush ?? Brushes.White;
         }
 
         protected double CenterX;
         protected double CenterY;
+        
+        protected Brush StrokeBrush { get; }
 
         public double X => CenterX;
         public double Y => CenterY;
@@ -23,9 +27,7 @@ namespace FiguresWpf.Figures
         public abstract void DrawBlack(Canvas canvas);
         public abstract void HideDrawingBackGround(Canvas canvas);
 
-        /// <summary>
-        /// Movement is implemented ONLY here (polymorphism works via DrawBlack/HideDrawingBackGround).
-        /// </summary>
+        
         public void Move(Canvas canvas, int steps = 50, double dx = 0, double dy = 0)
         {
             // Do not block the UI thread.
@@ -65,7 +67,7 @@ namespace FiguresWpf.Figures
 
         protected static System.Windows.Media.Brush GetBackgroundBrush(Canvas canvas)
         {
-            // If background is not explicitly set, fall back to Window background.
+            
             return canvas.Background
                    ?? (Application.Current?.MainWindow?.Background)
                    ?? System.Windows.Media.Brushes.White;

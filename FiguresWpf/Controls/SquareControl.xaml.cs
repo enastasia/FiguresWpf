@@ -1,5 +1,6 @@
 using System.Windows;
 using FiguresWpf.Figures;
+using System.Windows.Media;
 
 namespace FiguresWpf.Controls
 {
@@ -16,7 +17,8 @@ namespace FiguresWpf.Controls
         {
             double side = ParseDouble(SideBox.Text, 120);
             if (side <= 0) side = 120;
-            return new Square(centerX, centerY, side);
+            var stroke = ParseBrush(ColorBox.Text, Brushes.White);
+            return new Square(centerX, centerY, side, stroke);
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)

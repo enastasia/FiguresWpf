@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:FiguresWpf.Controls"
-        Title="Figures — GUI / Inheritance / Polymorphism" Height="650" Width="980"
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="18">
@@ -15,19 +14,17 @@
         <Border Grid.Column="0" CornerRadius="12" BorderBrush="{StaticResource BrushStroke}" BorderThickness="1" Background="{StaticResource BrushBg1}" Padding="16">
             <DockPanel LastChildFill="True">
                 <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12">
-                    <TextBlock Text="Налаштування фігури" FontSize="20" FontWeight="Bold"/>
-                    <TextBlock Text="MoveRight реалізований тільки в Figure.
-Різні фігури малюються через override DrawBlack/HideDrawingBackGround." Foreground="{StaticResource BrushTextDim}" Margin="0,6,0,0" TextWrapping="Wrap"/>
+                    <TextBlock Text="Налаштування фігури" FontSize="20" FontWeight="Bold" Foreground="White"/>
                 </StackPanel>
 
                 <TabControl x:Name="Tabs" Background="Transparent" BorderThickness="0">
-                    <TabItem Header="Circle">
+                    <TabItem Header="Круг">
                         <controls:CircleControl x:Name="CircleCtl" />
                     </TabItem>
-                    <TabItem Header="Square">
+                    <TabItem Header="Квадрат">
                         <controls:SquareControl x:Name="SquareCtl" />
                     </TabItem>
-                    <TabItem Header="Rhomb">
+                    <TabItem Header="Ромб">
                         <controls:RhombControl x:Name="RhombCtl" />
                     </TabItem>
                 </TabControl>
@@ -37,8 +34,7 @@
                 </StackPanel>
             </DockPanel>
         </Border>
-
-        <!-- Right panel (canvas) -->
+        
         <Border Grid.Column="2" CornerRadius="12" BorderBrush="{StaticResource BrushStroke}" BorderThickness="1" Background="{StaticResource BrushBg1}" Padding="12">
             <Grid>
                 <Grid.RowDefinitions>
@@ -47,8 +43,6 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Row="0" Margin="0,0,0,10">
-                    <TextBlock Text="Полотно" FontSize="18" FontWeight="SemiBold" DockPanel.Dock="Left" />
-                    <TextBlock Text="Підказка: Створи фігуру → натисни ‘Рух праворуч’" Foreground="{StaticResource BrushTextDim}" HorizontalAlignment="Right" />
                 </DockPanel>
 
                 <Canvas x:Name="DrawCanvas" Grid.Row="1" Background="{StaticResource BrushBg0}" ClipToBounds="True" />
