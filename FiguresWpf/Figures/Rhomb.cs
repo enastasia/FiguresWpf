@@ -56,5 +56,9 @@ namespace FiguresWpf.Figures
             _poly.Stroke = bg;
             _poly.Fill = bg;
         }
+        protected override (double HalfWidth, double HalfHeight) GetHalfSize()
+        {
+            return (DiagonalHorizontal / 2.0, DiagonalVertical / 2.0);
+        }
     }
 }

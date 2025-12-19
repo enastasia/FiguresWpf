@@ -25,10 +25,28 @@ namespace FiguresWpf.Controls
             if (double.TryParse(text, NumberStyles.Float, CultureInfo.CurrentCulture, out v)) return v;
             return fallback;
         }
+        
+        protected static bool TryParseDouble(string text, out double value)
+        {
+            if (double.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out value))
+            {
+                return !double.IsNaN(value) && !double.IsInfinity(value);
+            }
+            if (double.TryParse(text, NumberStyles.Float, CultureInfo.CurrentCulture, out value))
+            {
+                return !double.IsNaN(value) && !double.IsInfinity(value);
+            }
+            return false;
+        }
 
         protected static int ParseInt(string text, int fallback)
         {
             return int.TryParse(text, out var v) ? v : fallback;
+        }
+        
+        protected static bool TryParseInt(string text, out int value)
+        {
+            return int.TryParse(text, out value);
         }
         protected static Brush ParseBrush(string text, Brush fallback)
         {
@@ -42,6 +60,23 @@ namespace FiguresWpf.Controls
             catch
             {
                 return fallback;
+            }
+        }
+        
+        protected static bool TryParseBrush(string text, out Brush brush)
+        {
+            brush = null;
+            if (string.IsNullOrWhiteSpace(text)) return false;
+
+            try
+            {
+                var color = (Color)ColorConverter.ConvertFromString(text.Trim());
+                brush = new SolidColorBrush(color);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
         protected void Info(string message)

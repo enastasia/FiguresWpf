@@ -49,5 +49,10 @@ namespace FiguresWpf.Figures
             _rect.Stroke = bg;
             _rect.Fill = bg;
         }
+        protected override (double HalfWidth, double HalfHeight) GetHalfSize()
+        {
+            var half = Side / 2.0;
+            return (half, half);
+        }
     }
 }

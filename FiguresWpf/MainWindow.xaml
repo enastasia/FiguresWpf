@@ -14,11 +14,11 @@
         <Border Grid.Column="0" CornerRadius="12" BorderBrush="{StaticResource BrushStroke}" BorderThickness="1" Background="{StaticResource BrushBg1}" Padding="16">
             <DockPanel LastChildFill="True">
                 <StackPanel DockPanel.Dock="Top" Margin="0,0,0,12">
-                    <TextBlock Text="Налаштування фігури" FontSize="20" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Налаштування фігури" FontSize="20" FontWeight="Bold" Foreground="LightSteelBlue"/>
                 </StackPanel>
 
                 <TabControl x:Name="Tabs" Background="Transparent" BorderThickness="0">
-                    <TabItem Header="Круг">
+                    <TabItem Header="Коло">
                         <controls:CircleControl x:Name="CircleCtl" />
                     </TabItem>
                     <TabItem Header="Квадрат">

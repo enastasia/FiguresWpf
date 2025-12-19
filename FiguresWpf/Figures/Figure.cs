@@ -26,6 +26,7 @@ namespace FiguresWpf.Figures
 
         public abstract void DrawBlack(Canvas canvas);
         public abstract void HideDrawingBackGround(Canvas canvas);
+        protected abstract (double HalfWidth, double HalfHeight) GetHalfSize();
 
         
         public void Move(Canvas canvas, int steps = 50, double dx = 0, double dy = 0)
@@ -39,8 +40,29 @@ namespace FiguresWpf.Figures
                     Thread.Sleep(100);
                     Application.Current.Dispatcher.Invoke(() => HideDrawingBackGround(canvas));
 
-                    CenterX += dx;
-                    CenterY += dy;
+                    var (halfWidth, halfHeight) = GetHalfSize();
+                    var canvasWidth = GetCanvasWidth(canvas);
+                    var canvasHeight = GetCanvasHeight(canvas);
+
+                    var nextX = CenterX + dx;
+                    var nextY = CenterY + dy;
+
+                    if (canvasWidth > 0)
+                    {
+                        var minX = halfWidth;
+                        var maxX = Math.Max(minX, canvasWidth - halfWidth);
+                        nextX = Math.Min(Math.Max(nextX, minX), maxX);
+                    }
+
+                    if (canvasHeight > 0)
+                    {
+                        var minY = halfHeight;
+                        var maxY = Math.Max(minY, canvasHeight - halfHeight);
+                        nextY = Math.Min(Math.Max(nextY, minY), maxY);
+                    }
+
+                    CenterX = nextX;
+                    CenterY = nextY;
                 }
 
                 // Final draw, so the figure remains visible at the last position.
@@ -71,6 +93,19 @@ namespace FiguresWpf.Figures
             return canvas.Background
                    ?? (Application.Current?.MainWindow?.Background)
                    ?? System.Windows.Media.Brushes.White;
+        }
+        private static double GetCanvasWidth(Canvas canvas)
+        {
+            if (canvas == null) return 0;
+            if (canvas.ActualWidth > 0) return canvas.ActualWidth;
+            return canvas.Width > 0 ? canvas.Width : 0;
+        }
+
+        private static double GetCanvasHeight(Canvas canvas)
+        {
+            if (canvas == null) return 0;
+            if (canvas.ActualHeight > 0) return canvas.ActualHeight;
+            return canvas.Height > 0 ? canvas.Height : 0;
         }
     }
 }

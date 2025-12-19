@@ -46,5 +46,9 @@ namespace FiguresWpf.Figures
             _ellipse.Stroke = bg;
             _ellipse.Fill = bg;
         }
+        protected override (double HalfWidth, double HalfHeight) GetHalfSize()
+        {
+            return (Radius, Radius);
+        }
     }
 }

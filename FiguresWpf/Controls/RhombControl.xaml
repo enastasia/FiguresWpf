@@ -7,7 +7,7 @@
                             mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="Ромб" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+        <TextBlock Text="Ромб" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="LightSteelBlue"/>
 
         <TextBlock Text="Діагональ горизонтальна" Foreground="{StaticResource BrushTextDim}"/>
         <TextBox x:Name="DHBox" Text="160"/>

@@ -16,7 +16,6 @@ namespace FiguresWpf.Controls
         public override Figure CreateFigure(double centerX, double centerY)
         {
             double r = ParseDouble(RadiusBox.Text, 60);
-            if (r <= 0) r = 60;
             var stroke = ParseBrush(ColorBox.Text, Brushes.White);
             return new Circle(centerX, centerY, r, stroke);
         }
@@ -24,6 +23,8 @@ namespace FiguresWpf.Controls
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
             RaiseFigureCreated(CreateFigure(140, 180));
+            if (!TryCreateFigure(140, 180, out var figure)) return;
+            RaiseFigureCreated(figure);
         }
 
         private void MoveUp_Click(object sender, RoutedEventArgs e) => RequestMove(0, -1);
@@ -39,6 +40,25 @@ namespace FiguresWpf.Controls
             int steps = ParseInt(StepsBox.Text, 80);
             double speed = ParseDouble(DxBox.Text, 2);
             RaiseMoveRequested(steps, speed * directionX, speed * directionY);
+        }
+        
+        private bool TryCreateFigure(double centerX, double centerY, out Figure figure)
+        {
+            figure = null;
+            if (!TryParseDouble(RadiusBox.Text, out var radius) || radius <= 0)
+            {
+                Info("Некоректний радіус.");
+                return false;
+            }
+
+            if (!TryParseBrush(ColorBox.Text, out var stroke))
+            {
+                Info("Некоректний колір.");
+                return false;
+            }
+
+            figure = new Circle(centerX, centerY, radius, stroke);
+            return true;
         }
     }
 }

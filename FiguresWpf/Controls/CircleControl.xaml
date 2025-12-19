@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="Коло" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+        <TextBlock Text="Коло" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="LightSteelBlue"/>
 
         <TextBlock Text="Радіус" Foreground="{StaticResource BrushTextDim}"/>
         <TextBox x:Name="RadiusBox" Text="60"/>

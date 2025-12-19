@@ -17,15 +17,14 @@ namespace FiguresWpf.Controls
         {
             double dh = ParseDouble(DHBox.Text, 160);
             double dv = ParseDouble(DVBox.Text, 100);
-            if (dh <= 0) dh = 160;
-            if (dv <= 0) dv = 100;
             var stroke = ParseBrush(ColorBox.Text, Brushes.White);
             return new Rhomb(centerX, centerY, dh, dv, stroke);
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
-            RaiseFigureCreated(CreateFigure(140, 180));
+            if (!TryCreateFigure(140, 180, out var figure)) return;
+            RaiseFigureCreated(figure);
         }
 
         private void MoveUp_Click(object sender, RoutedEventArgs e) => RequestMove(0, -1);
@@ -41,6 +40,31 @@ namespace FiguresWpf.Controls
             int steps = ParseInt(StepsBox.Text, 80);
             double speed = ParseDouble(DxBox.Text, 2);
             RaiseMoveRequested(steps, speed * directionX, speed * directionY);
+        }
+        
+        private bool TryCreateFigure(double centerX, double centerY, out Figure figure)
+        {
+            figure = null;
+            if (!TryParseDouble(DHBox.Text, out var dh) || dh <= 0)
+            {
+                Info("Некоректна горизонтальна діагональ.");
+                return false;
+            }
+
+            if (!TryParseDouble(DVBox.Text, out var dv) || dv <= 0)
+            {
+                Info("Некоректна вертикальна діагональ.");
+                return false;
+            }
+
+            if (!TryParseBrush(ColorBox.Text, out var stroke))
+            {
+                Info("Некоректний колір.");
+                return false;
+            }
+
+            figure = new Rhomb(centerX, centerY, dh, dv, stroke);
+            return true;
         }
     }
 }
