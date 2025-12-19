@@ -28,7 +28,25 @@ namespace FiguresWpf.Figures
         public abstract void HideDrawingBackGround(Canvas canvas);
         protected abstract (double HalfWidth, double HalfHeight) GetHalfSize();
 
-        
+        public void CenterOn(Canvas canvas)
+        {
+            var canvasWidth = GetCanvasWidth(canvas);
+            var canvasHeight = GetCanvasHeight(canvas);
+            if (canvasWidth <= 0 || canvasHeight <= 0) return;
+
+            var (halfWidth, halfHeight) = GetHalfSize();
+            var targetX = canvasWidth / 2;
+            var targetY = canvasHeight / 2;
+
+            var minX = halfWidth;
+            var maxX = Math.Max(minX, canvasWidth - halfWidth);
+            var minY = halfHeight;
+            var maxY = Math.Max(minY, canvasHeight - halfHeight);
+
+            CenterX = Math.Min(Math.Max(targetX, minX), maxX);
+            CenterY = Math.Min(Math.Max(targetY, minY), maxY);
+        }
+
         public void Move(Canvas canvas, int steps = 50, double dx = 0, double dy = 0)
         {
             // Do not block the UI thread.

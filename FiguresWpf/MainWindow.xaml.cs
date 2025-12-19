@@ -21,6 +21,7 @@ namespace FiguresWpf
         {
             ctl.FigureCreated += figure =>
             {
+                figure.CenterOn(DrawCanvas);
                 _active = figure;
                 _active.DrawBlack(DrawCanvas);
             };

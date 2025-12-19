@@ -22,7 +22,6 @@ namespace FiguresWpf.Controls
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
-            RaiseFigureCreated(CreateFigure(140, 180));
             if (!TryCreateFigure(140, 180, out var figure)) return;
             RaiseFigureCreated(figure);
         }
